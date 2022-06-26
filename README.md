@@ -18,6 +18,8 @@ Muhammad Gozlan
 1. [Guide for using this Github Repo](#gitrepo)
    1. [Cloning Project](#clone)
    2. [Making Changes](#changes)
+   3. [Creating Branches](#branches)
+   4. [Creating Pull Request](#pullrequest)
 
 ### Guide for using this Guide Repo <a href="gitrepo"></a>
 
@@ -54,7 +56,7 @@ As you may see, there's `git pull origin main` this is used to bring the recent 
 
 > Tip: always do `git pull origin main` before you start making changes. And also before every `git push` you make.
 
-#### Creating branches
+#### Creating Branches  <a href="branches"></a>
 
 It would be helpful and easier if every team member can create their own branch and make changes on your respective branch. That way we can declare our `main` branch to hold all the accepted and approved updates, and all other branches work as feature branch.
 
@@ -64,8 +66,10 @@ To switch back to main branch type `git checkout main`. Remember to add and comm
 
 > Tip: Before checkout to a new branch make sure you are checking out from the updated branch. Example, if you are checking out from the `main` branch, that main branch on your local repo needs to `pull` updates from remote main branch.
 
-#### Creating pull request
+#### Creating Pull Request  <a href="pullrequest"></a>
 
 Once you have made changes on your respective branch, you can follow same approach mentioned in [Making Changes](#changes) section to update that branch remotely. Just make sure that this time it's not `main` on `git pull` or `git push` it should be your working branch name.
 
-After you have push your changes on the brach, you'll see option to merge it with main branch by creating pull request.
+After you have pushed your changes on the brach, you'll see option to merge it with main branch by creating pull request(see gif for reference). 
+
+![Pull request gif](/documentation/git-docs/pullrequest.gif)
