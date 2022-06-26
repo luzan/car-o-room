@@ -11,7 +11,7 @@ Find all documentation related materials in this folder. This folder holds all t
 
 ### Problem Statement <a name="problemStatement"></a>
 
-Find problem Statement under [Problem Statement.docx](Problem Statement.docx) file. This document is a mimic of how a customer or project owner can disseminate his idea about the project that is to be done by the Software Development team.
+Find problem Statement under [Problem Statement.docx](Problem%20Statement.docx) file. This document is a mimic of how a customer or project owner can disseminate his idea about the project that is to be done by the Software Development team.
 
 ### Premilinary Diagrams <a name="prediagrams"></a>
 
