@@ -81,7 +81,7 @@
 											"top": 127,
 											"width": 239,
 											"height": 13,
-											"text": "Car Rental System"
+											"text": "Car selling System"
 										},
 										{
 											"_type": "LabelView",
@@ -4201,7 +4201,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGBnWg8BwMmgWc="
 					},
-					"name": "Car Rental System"
+					"name": "Car selling System"
 				},
 				{
 					"_type": "UMLUseCaseSubject",
