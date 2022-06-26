@@ -6,7 +6,7 @@ Find all documentation related materials in this folder. This folder holds all t
 
 1. [Problem Statement](#problemStatement)
 2. [Preminary Diagrams](#prediagrams)
-   1. [Context Diagram] (#context) 
+   1. [Context Diagram](#context) 
    2. [Use Case](#usecase)
 
 ### Problem Statement <a name="problemStatement"></a>
