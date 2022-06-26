@@ -21,11 +21,11 @@ Muhammad Gozlan
    3. [Creating Branches](#branches)
    4. [Creating Pull Request](#pullrequest)
 
-### Guide for using this Guide Repo <a href="gitrepo"></a>
+### Guide for using this Guide Repo <a name="gitrepo"></a>
 
 This describes the guides to be used by everyone to use and make changes inside this repo.
 
-#### Cloning Project <a href="clone"></a>
+#### Cloning Project <a name="clone"></a>
 
 Team members need to clone the project onto their machine. To clone the project, locate a folder where you want to save this repo on your device and open Command Prompt or Terminal inside the folder. You can use this terminal command to clone it.
 
@@ -39,7 +39,7 @@ For further terminal command you need to change the directory using this command
 cd car-o-room
 ```
 
-#### Making changes <a href="changes"></a>
+#### Making changes <a name="changes"></a>
 
 Everyone in team is supposed to contribute in this project and all of the contribution needs to be added to this repository. Remember, everyone is working on this repository so we need to minimize the conflicts that can arise. One of the common conflict that can arise is merge conflict and there is a simple rule we can follow to avoid it in most of the cases. 
 
@@ -56,7 +56,7 @@ As you may see, there's `git pull origin main` this is used to bring the recent 
 
 > Tip: always do `git pull origin main` before you start making changes. And also before every `git push` you make.
 
-#### Creating Branches  <a href="branches"></a>
+#### Creating Branches  <a name="branches"></a>
 
 It would be helpful and easier if every team member can create their own branch and make changes on your respective branch. That way we can declare our `main` branch to hold all the accepted and approved updates, and all other branches work as feature branch.
 
@@ -66,7 +66,7 @@ To switch back to main branch type `git checkout main`. Remember to add and comm
 
 > Tip: Before checkout to a new branch make sure you are checking out from the updated branch. Example, if you are checking out from the `main` branch, that main branch on your local repo needs to `pull` updates from remote main branch.
 
-#### Creating Pull Request  <a href="pullrequest"></a>
+#### Creating Pull Request  <a name="pullrequest"></a>
 
 Once you have made changes on your respective branch, you can follow same approach mentioned in [Making Changes](#changes) section to update that branch remotely. Just make sure that this time it's not `main` on `git pull` or `git push` it should be your working branch name.
 
