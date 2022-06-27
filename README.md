@@ -6,13 +6,13 @@ Car-o-room is a web application to manage and display the new and used cars of c
 
 Amsale Zewdie
 
-Diana Kihembo
+Diana Kihembo 
 
-Jharna Karki
+Jharna Karki :nepal:
 
-Luzan Baral
+Luzan Baral :nepal:
 
-Muhammad Gozlan
+Muhammad Gozlan :jordan:
 
 ## Table of contents
 1. [Guide for using this Github Repo](#gitrepo)
