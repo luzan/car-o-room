@@ -2,17 +2,17 @@
 
 Car-o-room is a web application to manage and display the new and used cars of car selling showroom. This work is a classroom project done under supervision of ***Prof. Obinna Kalu*** for Software Engineering course.
 
-**Team Members**
+#### Team Members
 
-Amsale Zewdie
+**Amsale Zewdie** :ethiopia:
 
-Diana Kihembo 
+**Diana Kihembo** :uganda:
 
-Jharna Karki :nepal:
+**Jharna Karki** :nepal:
 
-Luzan Baral :nepal:
+**Luzan Baral** :nepal:
 
-Muhammad Gozlan :jordan:
+**Muhammad Gozlan** :jordan:
 
 ## Table of contents
 1. [Guide for using this Github Repo](#gitrepo)
