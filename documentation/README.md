@@ -48,4 +48,4 @@ We have two drafts of Architecture. First draft will give a glance of how the ar
 
 ### Lab 7: Design <a name="design"></a>
 
-For Lab 7, we have the same sequence diagram, as Prof. approved out sequence diagram already validates the requirements for this lab. However, final draft of Class Diagram can be found under Class Diagram folder.
+For Lab 7, we have the same sequence diagram, as Prof. O. Kalu approved out sequence diagram already validates the requirements for this lab. However, final draft of Class Diagram can be found under Class Diagram folder.
