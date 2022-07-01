@@ -73,3 +73,5 @@ Once you have made changes on your respective branch, you can follow same approa
 After you have pushed your changes on the brach, you'll see option to merge it with main branch by creating pull request(see gif for reference). 
 
 ![Pull request gif](/documentation/git-docs/pullrequest.gif)
+
+Thanks
