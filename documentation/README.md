@@ -12,6 +12,7 @@ Find all documentation related materials in this folder. This folder holds all t
    1. [Domain Model (Class Diagram)](#class)
    2. [Sequence Diagram](#sequence)
 4. [Lab 6: Architecture](#architecture)
+5. [Lab 7: Design](#design)
 
 ### Lab 4a: Problem Statement <a name="problemStatement"></a>
 
@@ -44,3 +45,7 @@ Sequence Diagram folder consist of two sequence diagram showing the behaviour of
 ### Lab 6: Architecture Diagrams <a name="architecture"></a>
 
 We have two drafts of Architecture. First draft will give a glance of how the architecture and final draft will be more consise about the architecture mentioning several tires and layers including technologies.
+
+### Lab 7: Design <a name="design"></a>
+
+For Lab 7, we have the same sequence diagram, as Prof. approved out sequence diagram already validates the requirements for this lab. However, final draft of Class Diagram can be found under Class Diagram folder.
