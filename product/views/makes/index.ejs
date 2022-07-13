@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <%- include('../partials/header'); %>
+    <div class="container">
+        <h3>Makes</h3>
+        <ul>
+            <% for( let make of makes ) { %>
+                <li>
+                    <%= make.name %> &nbsp; <span><a href="/makes/<%= make.id %>">Details</a></span>
+                    <ul>
+                        <% for( let model of make.models ) { %>
+                            <li><%= model %></li>
+                        <% } %>
+                    </ul>
+                </li>
+            <% } %>
+        </ul>
+        <a href="/makes/new">Create new</a>
+    </div>
+
+    <%- include('../partials/footer'); %>
+</body>
+
+</html>
