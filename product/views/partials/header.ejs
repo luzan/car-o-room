@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container">
+        <i class="fas fa-car-on fa-2x me-3" style="color: #709085;"></i>
+        <a class="navbar-brand" href="/cars">MahaCars</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/cars">Cars for Sale</a>
+                </li>
+            </ul>
+            <form class="d-flex my-2 my-lg-0">
+                <% if (typeof isLoggedIn !== 'undefined' && isLoggedIn ) { %>
+                    <a class="btn btn-outline-success my-2 mx-2 my-sm-0" href="/cars/new">Add new car</a>
+                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/logout">Logout</a>
+                  
+                    <% } else  { %>
+                        <a class="btn btn-outline-success my-2 my-sm-0" href="/">Login</a>
+                <% } %>
+            </form>
+        </div>
+    </div>
+</nav>
+

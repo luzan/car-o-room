@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <%- include('../partials/header'); %>
+    <div class="container">
+        <h3>Edit Make</h3>
+        <form action="/makes/<%= make.id %>?_method=PUT" method="POST">
+            <div class="mb-3">
+              <label for="" class="form-label">Make</label>
+              <input type="text"
+                class="form-control" name="name" id="name" aria-describedby="helpId" value="<%= make.name %>">
+              <small id="helpId" class="form-text text-muted">Only change if you need to edit this name</small>
+            </div>
+
+            <div class="mb-3">
+              <label for="model1" class="form-label">Model 1</label>
+              <input type="text"
+                class="form-control" name="model1" id="model1" aria-describedby="helpId" value="<%= make.models[0] %>">
+              <small id="helpId" class="form-text text-muted">Edit model name</small>
+            </div>
+            <div class="mb-3">
+              <label for="model2" class="form-label">Model 2</label>
+              <input type="text"
+                class="form-control" name="model2" id="model2" aria-describedby="helpId" value="<%= make.models[1] %>">
+              <small id="helpId" class="form-text text-muted">Enter model name</small>
+            </div>
+            <div class="mb-3">
+              <label for="model3" class="form-label">Model 3</label>
+              <input type="text"
+                class="form-control" name="model3" id="model3" aria-describedby="helpId" value="<%= make.models[2] %>">
+              <small id="helpId" class="form-text text-muted">Enter model name</small>
+            </div>
+            <div class="mb-3">
+              <label for="model4" class="form-label">Model 4</label>
+              <input type="text"
+                class="form-control" name="model4" id="model4" aria-describedby="helpId" value="<%= make.models[3] %>">
+              <small id="helpId" class="form-text text-muted">Enter model name</small>
+            </div>
+            <input  class="btn btn-primary btn-lg" type="submit" value="Update">
+        </form>
+    </div>
+    
+
+    <%- include('../partials/footer'); %>
+</body>
+
+</html>

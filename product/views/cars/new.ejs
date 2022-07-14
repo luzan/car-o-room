@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+    <%- include('../partials/select'); %>
+        
+        
+</head>
+
+<body>
+    <%- include('../partials/header'); %>
+
+        <div class="container px-5 my-5">
+            <h3>Add a new Car</h3>
+            <form id="createCar" action="/cars" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" id="title" name="title" type="text" placeholder="Title" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="status">Status</label>
+                    <select class="form-select" id="status" name="status" aria-label="Status">
+                        <option value="New">New</option>
+                        <option value="Used">Used</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="year">Year</label>
+                    <input class="form-control" id="year" name="year" type="number" placeholder="Year" required />
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="distance">Distance</label>
+                    <input class="form-control" id="distance" name="distance" type="number" placeholder="Distance" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Price</label>
+                    <input class="form-control" id="price" name="price" type="number" placeholder="Price" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="zipCode">Zip Code</label>
+                    <input class="form-control" id="zipCode" name="zipCode" type="number" placeholder="Zip Code" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="make">Make</label>
+                    <select class="form-select" id="make" name="make" aria-label="Make">
+                        <% for( let make of makes ) { %>
+                            <option value="<%= make.name %>">
+                                <%= make.name %>
+                            </option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="model">Model</label>
+                    <select class="form-select" id="model" name="model" aria-label="Model">
+                        <% for( let make of makes ) { %>
+                            <% for(let model of make.models) {%>
+                                <option value="<%= model %>" data-filter="<%= make.name%>">
+                                    <%= model %>
+                                </option>
+                            <% }%>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="bodyStyle">Body Type</label>
+                    <select class="form-select" id="bodyStyle" name="bodyStyle" aria-label="Body Type">
+                        <option value="Sedan">Sedan</option>
+                        <option value="Coupe">Coupe</option>
+                        <option value="SUV">SUV</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="sellersNote">Seller&#x27;s Note</label>
+                    <textarea class="form-control" id="sellersNote" name="sellersNote" type="text" placeholder="Seller&#x27;s Note"
+                        style="height: 10rem;"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="custom-file">
+                    <input type="file" name="image" id="image" placeholder="Choose image" class="custom-file-input" aria-describedby="fileHelpId">
+                    <span class="custom-file-control"></span>
+                  </label>
+                  <small id="fileHelpId" class="form-text text-muted">Choose image, square image are best.</small>
+                </div>
+                <div class="d-grid">
+                    <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <%- include('../partials/footer'); %>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+    <%- include('../partials/select') %>
+</head>
+
+<body>
+    <%- include('../partials/header'); %>
+
+        <div class="container px-5 my-5">
+            <h3>Add a new Car</h3>
+            <form id="createCar" action="/cars/<%= car.id %>?_method=PUT" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" id="title" name="title" type="text" placeholder="Title" required value="<%= car.title %>"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="status">Status</label>
+                    <select class="form-select" id="status" name="status" aria-label="Status">
+                        <option value="New" <%= car.status === 'New'? 'selected': '' %> >New</option>
+                        <option value="Used" <%= car.status === 'Used'? 'selected': '' %> >Used</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="year">Year</label>
+                    <input class="form-control" id="year" name="year" type="text" placeholder="Year" required value="<%= car.year %>"/>
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="distance">Distance</label>
+                    <input class="form-control" id="distance" name="distance" type="text" placeholder="Distance" required value="<%= car.distance %>" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Price</label>
+                    <input class="form-control" id="price" name="price" type="text" placeholder="Price" required value="<%= car.price %>" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="zipCode">Zip Code</label>
+                    <input class="form-control" id="zipCode" name="zipCode" type="number" placeholder="Zip Code" required value="<%= car.price %>" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="make">Make</label>
+                    <select class="form-select" id="make" name="make" aria-label="Make">
+                        <% for( let make of makes ) { %>
+                            <option value="<%= make.name %>" <%= car.make === make.name? 'selected': '' %>>
+                                <%= make.name %>
+                            </option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="model">Model</label>
+                    <select class="form-select" id="model" name="model" aria-label="Model">
+                        <% for( let make of makes ) { %>
+                            <% for(let model of make.models) {%>
+                                <option value="<%= model %>" data-filter="<%= make.name%>" <%= (model === car.model)? 'selected': '' %>>
+                                    <%= model %>
+                                </option>
+                            <% }%>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="bodyStyle">Body Type</label>
+                    <select class="form-select" id="bodyStyle" name="bodyStyle" aria-label="Body Type">
+                        <option value="Sedan" <%= car.bodyStyle == 'Sedan'? 'selected': '' %>>Sedan</option>
+                        <option value="Coupe" <%= car.bodyStyle == 'Coupe'? 'selected': '' %>>Coupe</option>
+                        <option value="SUV" <%= car.bodyStyle == 'SUV'? 'selected': '' %>>SUV</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="sellersNote">Seller&#x27;s Note</label>
+                    <textarea class="form-control" id="sellersNote" name="sellersNote" type="text" placeholder="Seller&#x27;s Note"
+                        style="height: 10rem;"><%= car.sellersNote %></textarea>
+                </div>
+                <div class="d-grid">
+                    <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+        <%- include('../partials/footer'); %>
+</body>
+
+</html>
