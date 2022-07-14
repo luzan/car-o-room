@@ -63,6 +63,7 @@ function getArticleHTML(cars) {
                 <p class="card-text mb-auto">
                 ${car.sellersNote}
                 </p>
+                <a href="/cars/show/<%= car.id %>" class="stretched-link">View Details</a>
             </div>
 
             <div class="col-auto d-none d-lg-block">
