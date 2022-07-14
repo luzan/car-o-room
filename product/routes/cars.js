@@ -1,6 +1,7 @@
 const express = require('express');
 const {  
     getCars,
+    getCarById,
     filterCars,
     newCarForm,
     postNewCar,
@@ -25,6 +26,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 router.get('/', requireAuth, getCars);
+router.get('/:id', getCarById);
 router.get('/filter', requireAuth, filterCars);
 router.get('/new', requireAuth, newCarForm);
 router.post('/', requireAuth, upload.single('image'), postNewCar);

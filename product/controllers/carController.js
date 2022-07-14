@@ -88,6 +88,13 @@ const getCars = async (req, res) => {
     res.render('cars/index', { cars, makes })
 }
 
+const getCarById = async(req, res) => {
+    const { id } = req.params;
+    const car = await Car.findById(id);
+    const makes = await Make.find({});
+    res.render('cars/single', {car, makes})
+}
+
 const newCarForm = async (req, res) => {
     const makes = await Make.find({});
     
@@ -154,6 +161,7 @@ const deleteCar = async (req, res) => {
 
 module.exports = {
     getCars,
+    getCarById,
     filterCars,
     newCarForm,
     postNewCar,
