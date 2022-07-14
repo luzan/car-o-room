@@ -1,7 +1,7 @@
 {
-  "name": "wap-project",
+  "name": "swe-project",
   "version": "1.0.0",
-  "description": "Final Project for WAP472",
+  "description": "Final Project for SWE CS425",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -13,7 +13,7 @@
     "ejs",
     "mongoose"
   ],
-  "author": "Luzan Baral",
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.0.1",
