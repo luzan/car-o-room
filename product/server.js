@@ -20,7 +20,7 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
         console.log(err);
     });
 
-const { authTokens } = require('./middlewares/authTokens')
+const { authTokens, isLoggedIn, } = require('./middlewares/authTokens')
 
 // middlewares
 app.use(express.json());

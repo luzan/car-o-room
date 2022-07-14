@@ -1,12 +1,13 @@
+const { isLoggedIn } = require('../middlewares/authTokens');
 const Make = require('../models/makeSchema');
 
 const getMakes = async (req, res) => {
     const makes = await Make.find({});
-    res.render('makes/index', { makes });
+    res.render('makes/index', { makes, isLoggedIn: isLoggedIn() });
 }
 
 const newMake = (req, res) => {
-    res.render('makes/new');
+    res.render('makes/new', {isLoggedIn: isLoggedIn()});
 }
 
 const postMake = async (req, res) => {
@@ -23,13 +24,13 @@ const postMake = async (req, res) => {
 const getOneMake = async (req, res) => {
     const { id } = req.params;
     const make = await Make.findById(id);
-    res.render('makes/show', { make })
+    res.render('makes/show', { make, isLoggedIn: isLoggedIn() })
 }
 
 const editMakeForm = async (req, res) => {
     const { id } = req.params;
     const make = await Make.findById(id);
-    res.render('makes/edit', { make })
+    res.render('makes/edit', { make, isLoggedIn: isLoggedIn() })
 }
 
 const editMakeRequest = async (req, res) => {

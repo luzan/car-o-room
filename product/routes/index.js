@@ -1,7 +1,7 @@
 const express = require('express');
 const { loginIndex, loginUser, registerIndex, registerPost, logout } = require('../controllers/loginController');
 const router = express.Router();
-const { authTokens, generateAuthToken, isLoggedIn } = require('../middlewares/authTokens')
+const { authTokens, generateAuthToken, changeLoggedInTrue } = require('../middlewares/authTokens')
 
 
 router.get('/', loginIndex);
@@ -12,6 +12,7 @@ router.post('/', (req, res)=> {
             const minute = process.env.MAXSESSION * 60 * 1000;
             const authToken = generateAuthToken();
             authTokens[authToken] = username;
+            changeLoggedInTrue();
             remember? res.cookie('AuthToken', authToken, { maxAge: minute }) : res.cookie('AuthToken', authToken);
             res.redirect('/cars');
         } else {

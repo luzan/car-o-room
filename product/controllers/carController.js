@@ -4,7 +4,8 @@ const Make = require('../models/makeSchema');
 const multer  = require('multer')
 const fs = require('fs');
 const path = require('path');
-const { promisify } = require('util')
+const { promisify } = require('util');
+const { isLoggedIn } = require('../middlewares/authTokens');
 const unlinkAsync = promisify(fs.unlink)
 
 const storage = multer.diskStorage({
@@ -85,20 +86,20 @@ const getCars = async (req, res) => {
     const cars = await Car.find();
     const makes = await Make.find({});
 
-    res.render('cars/index', { cars, makes })
+    res.render('cars/index', { cars, makes, isLoggedIn: isLoggedIn() })
 }
 
 const getCarById = async(req, res) => {
     const { id } = req.params;
     const car = await Car.findById(id);
     const makes = await Make.find({});
-    res.render('cars/single', {car, makes})
+    res.render('cars/single', {car, makes, isLoggedIn: isLoggedIn()})
 }
 
 const newCarForm = async (req, res) => {
     const makes = await Make.find({});
     
-    res.render('cars/new', { makes });
+    res.render('cars/new', { makes, isLoggedIn: isLoggedIn() });
 }
 
 const postNewCar = async (req, res) => {
@@ -130,7 +131,7 @@ const editCarForm = async (req, res) => {
     const makes = await Make.find({});
     const car = await Car.findById(id);
     console.log(car);
-    res.render('cars/edit', { car, makes })
+    res.render('cars/edit', { car, makes, isLoggedIn: isLoggedIn() })
 }
 
 const editCarRequest = async (req, res) => {

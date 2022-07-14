@@ -1,11 +1,12 @@
+const { changeLoggedInFalse, isLoggedIn } = require("../middlewares/authTokens");
 const UserModel = require("../models/userSchema")
 
 const loginIndex = (req, res) => {
-    res.render('index', {hide : true});
+    res.render('index', {isLoggedIn : isLoggedIn()});
 }
 
 const registerIndex = (req, res) => {
-    res.render('register', {hide : true});
+    res.render('register', {isLoggedIn : isLoggedIn()});
 }
 
 const registerPost = async (req, res) => {
@@ -19,6 +20,7 @@ const registerPost = async (req, res) => {
 }
 
 const logout = (req, res) => {
+    changeLoggedInFalse();
     res.clearCookie('AuthToken');
     res.redirect('/')
 }

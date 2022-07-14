@@ -9,19 +9,33 @@
     <%- include('../partials/header'); %>
     <div class="container">
         <h3>Makes</h3>
-        <ul>
+
+        <a class="btn btn-outline-primary" href="/makes/new">Create new</a>
+        <hr class="my-4">
+        <div class="row">
             <% for( let make of makes ) { %>
-                <li>
-                    <%= make.name %> &nbsp; <span><a href="/makes/<%= make.id %>">Details</a></span>
-                    <ul>
-                        <% for( let model of make.models ) { %>
-                            <li><%= model %></li>
-                        <% } %>
-                    </ul>
-                </li>
+                <div class="col-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header">
+                            <%= make.name %>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <% for( let model of make.models ) { %>
+                                <li class="list-group-item"><%= model %></li>
+                            <% } %>
+                        </ul>
+                        <div class="card-footer">
+                            <a style="display: inline-block;" class="btn btn-outline-secondary" href="/makes/<%= make.id %>/edit" class="card-link">Edit</a>
+                            <form style="display: inline-block;" action="/makes/<%= make.id %>?_method=DELETE" method="post">
+                                <input class="btn btn-outline-danger" type="submit" value="Delete">
+                            </form>
+                        </div>
+                    </div>
+                </div>
             <% } %>
-        </ul>
-        <a href="/makes/new">Create new</a>
+        </div>
+
+        
     </div>
 
     <%- include('../partials/footer'); %>

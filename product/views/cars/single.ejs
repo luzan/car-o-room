@@ -80,12 +80,14 @@
                                     <p class="card-text mb-auto">
                                         <%= car.sellersNote %>
                                     </p>
-                                    <form class=" my-2 my-lg-0" method="post"
-                                        action="/cars/<%= car.id %>?_method=DELETE">
-                                        <a href="/cars/<%= car.id %>/edit" class="btn btn-outline-primary">Edit</a>
-                                        &nbsp;
-                                        <button class="btn btn-outline-danger" type="submit">Delete</button>
-                                    </form>
+                                    <% if (isLoggedIn) { %>
+                                        <form class=" my-2 my-lg-0" method="post"
+                                            action="/cars/<%= car.id %>?_method=DELETE">
+                                            <a href="/cars/<%= car.id %>/edit" class="btn btn-outline-primary">Edit</a>
+                                            &nbsp;
+                                            <button class="btn btn-outline-danger" type="submit">Delete</button>
+                                        </form>
+                                    <% } %>
                                 </div>
 
                                 <div class="col-auto d-none d-lg-block">
@@ -157,15 +159,20 @@
                                         <label for="comments">Comments <span class="text-muted">(Optional)</span></label>
                                     </div>
                                   </div>
-                                  <hr class="my-4">
-                                  <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="hasTradeIn" name="hasTradeIn">
-                                    <label class="form-check-label" for="hasTradeIn">I plan to Trade</label>
+                                  <div class="row g-3">
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                          <input type="checkbox" class="form-check-input" id="hasTradeIn" name="hasTradeIn">
+                                          <label class="form-check-label" for="hasTradeIn">I plan to Trade</label>
+                                        </div>
+                                    </div>
                                   </div>
-                                  <hr class="my-4">
-                                  <div class="col-auto">
-                                    <input type="hidden" name="carId" value="<%= car.id %>"/>
-                                    <input type="submit" class="btn btn-primary mb-3" value="Submit">
+                                 
+                                  <div class="row g-3">
+                                      <div class="col-12 d-grid">
+                                        <input type="hidden" name="carId" value="<%= car.id %>"/>
+                                        <input type="submit" class="btn btn-primary mb-3 stretched-link" value="Submit">
+                                      </div>
                                   </div>
                             </form>
                         </div>

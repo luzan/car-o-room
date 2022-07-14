@@ -1,10 +1,11 @@
 const Car = require('../models/carSchema');
 const Inquiry = require('../models/inquirySchema');
 const moment = require('moment');
+const { isLoggedIn } = require('../middlewares/authTokens');
 const getInquiries = async (req, res) => {
     const inquiries = await Inquiry.find().populate("forCar");
     console.log(inquiries)
-    res.render('inquiry/list', {inquiries, moment: moment});
+    res.render('inquiry/list', {inquiries, moment: moment, isLoggedIn: isLoggedIn()});
 }
 
 const postInquiry = async (req, res) => {

@@ -1,5 +1,5 @@
 const crypto = require('crypto');
-
+let isLoggedIn = false;
 module.exports = {
     authTokens: {},
     generateAuthToken: () => {
@@ -12,5 +12,13 @@ module.exports = {
             res.redirect('/');
         }
     },
-    isLoggedIn: false
+    isLoggedIn: () => {
+        return isLoggedIn;
+    },
+    changeLoggedInTrue: () =>{
+        isLoggedIn= true;
+    },
+    changeLoggedInFalse: () =>{
+        isLoggedIn= false;
+    }
 }

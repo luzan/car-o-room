@@ -169,14 +169,16 @@
 
                             </form>
                         </div>
-
-                        <div class="p-4">
-                            <h4 class="fst-italic">Admin Task</h4>
-                            <ol class="list-unstyled">
-                                <li><a href="/cars/new">Add Car</a></li>
-                                <li><a href="/makes/new">Add Makes & Models</a></li>
-                            </ol>
-                        </div>
+                        <% if (isLoggedIn) { %>
+                            <div class="p-4">
+                                <h4 class="fst-italic">Admin Task</h4>
+                                <ol class="list-unstyled">
+                                    <li><a href="/cars/new">Add Car</a></li>
+                                    <li><a href="/makes/new">Add Makes & Models</a></li>
+                                </ol>
+                            </div>
+                        <% } %>
+                        
                     </div>
                 </div>
                 <div class="col-md-8 pe-0" id="forcars">
@@ -204,12 +206,15 @@
                                     <p class="card-text mb-auto">
                                         <%= car.sellersNote %>
                                     </p>
-                                    <form class=" my-2 my-lg-0" method="post"
+                                    <% if (isLoggedIn) { %>
+                                        <form class=" my-2 my-lg-0" method="post"
                                         action="/cars/<%= car.id %>?_method=DELETE">
                                         <a href="/cars/<%= car.id %>/edit" class="btn btn-outline-primary">Edit</a>
                                         &nbsp;
                                         <button class="btn btn-outline-danger" type="submit">Delete</button>
                                     </form>
+                                    <% } %>
+                                    
                                     <a href="/cars/<%= car.id %>" class="stretched-link">View Details</a>
                                 </div>
 
