@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+        <%- include('../partials/select'); %>
+            <script>
+                $(function () {
+                    $('#orderSwitch').on('change', function (e) {
+                        e.preventDefault();
+                        $('#orderSwitch').val($('#orderSwitch').val() === 'asc' ? 'desc' : 'asc');
+                        
+                        let params = {
+                            order: $('#orderSwitch').val(),
+                            status: $('#status').val(),
+                            price: $('#price').val(),
+                            make: $('#make').val(),
+                            model: $('#model').val(),
+                            distance: $('#distance').val(),
+                        }
+
+                        $.ajax({
+                            type: "GET",
+                            url: '/cars/filter',
+                            data: params,
+                            success: function (response) {
+                                $('#forcars').html(response.html);
+                            }
+                        });
+                    });
+                    $('#filterCar').submit(function (e) {
+                        e.preventDefault();
+                        var orderVal = $('#orderSwitch').val($('#orderSwitch').val() === 'asc' ? 'desc' : 'asc');
+                        let params = {
+                            order: orderVal.val(),
+                            status: $('#status').val(),
+                            price: $('#price').val(),
+                            make: $('#make').val(),
+                            model: $('#model').val(),
+                            distance: $('#distance').val(),
+                        }
+                        $.ajax({
+                            type: "GET",
+                            url: '/cars/filter',
+                            data: params,
+                            success: function (response) {
+                                
+                                $('#forcars').html(response.html);
+                            }
+                        });
+                    });
+                })
+            </script>
+            <style>
+                .bg-image {
+                    position: relative;
+                    overflow: hidden;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: 50%;
+                }
+            </style>
+</head>
+
+<body>
+    <%- include('../partials/header'); %>
+        <div class="container">
+            <div class="row g-5">
+
+                <div class="p-5 text-center bg-image" style="
+          background-image: url('/img/hero.webp');
+          height: 400px;
+        ">
+                    <div class="mask" >
+                        <div class="d-flex justify-content-start h-100">
+                            <div class="text-white">
+                                <h1 class="mb-3" style="width: 12ch;font-size: 56px;max-width: 80%; text-align:left;line-height: 1.3;"><span style="background-color: rgba(0, 0, 0, 0.6);">Find your match</span></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-md-4 border shadow-sm pe-0">
+                    <div class="position-sticky" style="top: 2rem;">
+
+                        <div class="p-4">
+                            <h4 class="fst-italic">Filters</h4>
+                            <form class="row mb-0 g-0" id="filterCar" method="get">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="orderSwitch" name="order"
+                                        value="desc">
+                                    <label class="form-check-label" for="orderSwitch">Check for ascending
+                                        order by price</label>
+                                </div>
+                                <div class="input-group">
+                                    <div class="form-floating col-6">
+                                        <select class="form-control form-select rounded-0"
+                                            style="border-top-left-radius: 5px !important;" name="status" id="status">
+                                            <option value="newandused">New & Used</option>
+                                            <option value="New">New</option>
+                                            <option value="Used">Used</option>
+                                        </select>
+                                        <label for="status">New/Used</label>
+                                    </div>
+                                    <div class="form-floating col-6">
+                                        <select class="form-control form-select rounded-0"
+                                            style="border-top-right-radius: 5px !important;" name="price" id="price">
+                                            <option value="all">All prices</option>
+                                            <option value="5000">5000 max</option>
+                                            <option value="10000">10000 max</option>
+                                            <option value="20000">20000 max</option>
+                                            <option value="50000">50000 max</option>
+                                            <option value="50001">50000+</option>
+                                        </select>
+                                        <label for="price">Price</label>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <div class="form-floating col-6">
+                                        <select class="form-control form-select rounded-0" name="make" id="make">
+                                            <option value="all">All makes</option>
+                                            <% for( let make of makes ) { %>
+                                                <option value="<%= make.name %>">
+                                                    <%= make.name %>
+                                                </option>
+                                                <% } %>
+                                        </select>
+                                        <label for="make">Make</label>
+                                    </div>
+                                    <div class="form-floating col-6">
+                                        <select class="form-control form-select rounded-0" name="model" id="model">
+                                            <option value="all" data-filter="all">All models</option>
+                                            <% for( let make of makes ) { %>
+                                                <% for(let model of make.models) {%>
+                                                    <option value="<%= model %>" data-filter="<%= make.name%>">
+                                                        <%= model %>
+                                                    </option>
+                                                    <% }%>
+                                                        <% } %>
+                                        </select>
+                                        <label for="model">Model</label>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <div class="form-floating col-6">
+                                        <select class="form-control form-select rounded-0"
+                                            style="border-bottom-left-radius: 5px !important;" name="distance"
+                                            id="distance">
+                                            <option value="all">All miles</option>
+                                            <option value="10000">10000 miles</option>
+                                            <option value="20000">20000 miles</option>
+                                            <option value="50000">50000 miles</option>
+                                            <option value="100000">100000 miles</option>
+                                            <option value="100001">100000 above</option>
+                                        </select>
+                                        <label for="distance">Distance</label>
+                                    </div>
+
+                                    <button class="col-6 btn btn-secondary rounded-0"
+                                        style="border-bottom-right-radius: 5px !important;"
+                                        type="submit">Search</button>
+
+                                </div>
+
+                            </form>
+                        </div>
+                        <% if (isLoggedIn) { %>
+                            <div class="p-4">
+                                <h4 class="fst-italic">Admin Task</h4>
+                                <ol class="list-unstyled">
+                                    <li><a href="/cars/new">Add Car</a></li>
+                                    <li><a href="/makes/new">Add Makes & Models</a></li>
+                                </ol>
+                            </div>
+                        <% } %>
+                        
+                    </div>
+                </div>
+                <div class="col-md-8 pe-0" id="forcars">
+
+                    <% for( let car of cars ) { %>
+                        <article>
+                            <div
+                                class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                                <div class="col p-4 d-flex flex-column position-static">
+                                    <strong
+                                        class="d-inline-block mb-2 <%= car.status ==='Used'?'text-primary':'text-success' %>">
+                                        <%= car.status %>
+                                    </strong>
+                                    <h4 class="fw-bold mb-0">
+                                        <%= car.title %>
+                                    </h4>
+                                    <h6 class="fw-bold mb-0">
+                                        <%= car.make %> - <%= car.model %>
+                                    </h6>
+                                    <div class="mb-3 text-muted">
+                                        <%= car.distance %> mi. <i class="fa-solid fa-location-dot"></i> <%= car.zipCode %>
+                                    </div>
+                                    <h3 class="mb-2">$ <%= car.price %>
+                                    </h3>
+                                    <p class="card-text mb-auto">
+                                        <%= car.sellersNote %>
+                                    </p>
+                                    <% if (isLoggedIn) { %>
+                                        <form class=" my-2 my-lg-0" method="post"
+                                        action="/cars/<%= car.id %>?_method=DELETE">
+                                        <a href="/cars/<%= car.id %>/edit" class="btn btn-outline-primary">Edit</a>
+                                        &nbsp;
+                                        <button class="btn btn-outline-danger" type="submit">Delete</button>
+                                    </form>
+                                    <% } %>
+                                    
+                                    <a href="/cars/show/<%= car.id %>" class="stretched-link">View Details</a>
+                                </div>
+
+                                <div class="col-auto d-none d-lg-block">
+                                    <img src="<%= car.imageUrl != null? car.imageUrl : '/img/thumbnail.jpg' %>" class=""
+                                        alt="" width="400" height="400">
+                                </div>
+                            </div>
+                        </article>
+                        <% } %>
+                </div>
+
+            </div>
+
+        </div>
+        <%- include('../partials/footer'); %>
+</body>
+
+</html>

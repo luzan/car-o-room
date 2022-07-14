@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <%- include('../partials/header'); %>
+    <div class="container">
+        <h3><%= make.name %></h3>
+        <ul>
+            <% for( let model of make.models ) { %>
+                <li><%= model %></li>
+            <% } %>
+        </ul>
+        <a href="/makes/<%= make.id %>/edit">Edit</a>
+        <a href="/makes">Back to Makes</a>
+        <form action="/makes/<%= make.id %>?_method=DELETE" method="post">
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+
+    <%- include('../partials/footer'); %>
+</body>
+
+</html>
