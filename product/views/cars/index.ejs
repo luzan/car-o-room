@@ -4,16 +4,12 @@
 <head>
     <%- include('../partials/head'); %>
         <%- include('../partials/select'); %>
-            <!-- <script src="https://cdn.jsdelivr.net/npm/ejs@3.1.8/ejs.min.js"></script>-->
             <script>
                 $(function () {
                     $('#orderSwitch').on('change', function (e) {
                         e.preventDefault();
                         $('#orderSwitch').val($('#orderSwitch').val() === 'asc' ? 'desc' : 'asc');
                         
-                        // params={};location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(s,k,v){params[k]=v});
-                        // params.order = orderVal.val();
-                        // console.log(params);
                         let params = {
                             order: $('#orderSwitch').val(),
                             status: $('#status').val(),
@@ -215,7 +211,7 @@
                                     </form>
                                     <% } %>
                                     
-                                    <a href="/cars/<%= car.id %>" class="stretched-link">View Details</a>
+                                    <a href="/cars/show/<%= car.id %>" class="stretched-link">View Details</a>
                                 </div>
 
                                 <div class="col-auto d-none d-lg-block">

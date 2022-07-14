@@ -11,7 +11,6 @@ const newMake = (req, res) => {
 }
 
 const postMake = async (req, res) => {
-    console.log(req.body);
     const { name, model1, model2, model3, model4 } = req.body;
     const make = new Make({
         name: name,
@@ -34,7 +33,6 @@ const editMakeForm = async (req, res) => {
 }
 
 const editMakeRequest = async (req, res) => {
-    console.log(req.body);
     const { id } = req.params;
     const { name, model1, model2, model3, model4 } = req.body;
     const make = await Make.findByIdAndUpdate(id, {

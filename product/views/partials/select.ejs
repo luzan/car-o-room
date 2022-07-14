@@ -5,18 +5,15 @@
         $model = $('#model');
         $modelOptions = $model.children();
 
-        // console.log(makename);
-        // filterCombobox($("#model"), makename, true);
         $make.on('change', function () {
             $makename = $('#make option:selected').val();
-            //remove the options
+      
             $modelOptions.detach();
             $('<option value="all" data-filter="all">All models</option>').appendTo($model);
-            //readd only the options for the country
+           
             $modelOptions.filter(function () {
                 return $(this).data('filter').indexOf($makename) === 0;
             }).appendTo($model);
-            //clear out the value so it doesn't default to one it should not
             $model.val('');
         });
     });

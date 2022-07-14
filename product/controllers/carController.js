@@ -39,10 +39,9 @@ const filterCars = async (req, res) => {
 }
 
 function getArticleHTML(cars) {
-    console.log(cars);
+
     let html = '';
     for (let car of cars) {
-        console.log('loop');
         html += `<article>
         <div
             class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -98,7 +97,6 @@ const getCarById = async(req, res) => {
 
 const newCarForm = async (req, res) => {
     const makes = await Make.find({});
-    
     res.render('cars/new', { makes, isLoggedIn: isLoggedIn() });
 }
 
@@ -130,7 +128,6 @@ const editCarForm = async (req, res) => {
     const { id } = req.params;
     const makes = await Make.find({});
     const car = await Car.findById(id);
-    console.log(car);
     res.render('cars/edit', { car, makes, isLoggedIn: isLoggedIn() })
 }
 

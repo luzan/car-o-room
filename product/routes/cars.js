@@ -26,7 +26,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 router.get('/', getCars);
-router.get('/:id', getCarById);
+router.get('/show/:id', getCarById);
 router.get('/filter', filterCars);
 router.get('/new', requireAuth, newCarForm);
 router.post('/', requireAuth, upload.single('image'), postNewCar);
