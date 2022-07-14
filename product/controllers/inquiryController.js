@@ -1,0 +1,40 @@
+const Car = require('../models/carSchema');
+const Inquiry = require('../models/inquirySchema');
+const moment = require('moment');
+const getInquiries = async (req, res) => {
+    const inquiries = await Inquiry.find().populate("forCar");
+    console.log(inquiries)
+    res.render('inquiry/list', {inquiries, moment: moment});
+}
+
+const postInquiry = async (req, res) => {
+    console.log(req.body);
+    const {
+        firstName,
+        lastName,
+        email,
+        phone,
+        subject,
+        comments,
+        hasTradeIn,
+        carId
+    } = req.body;
+    let forCar = await Car.findById(carId);
+    const inquiry = new Inquiry({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+        subject: subject,
+        comments: comments,
+        hasTradeIn: hasTradeIn === "on" ? true: false,
+        forCar: forCar
+    })
+    await inquiry.save();
+    res.json({message: "Inquiry registered"})
+}
+
+module.exports = {
+    getInquiries,
+    postInquiry
+}

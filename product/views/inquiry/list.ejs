@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+</head>
+
+<body>
+    <%- include('../partials/header'); %>
+    <div class="container">
+        <h1>Latest Inquiries</h1>
+        <table class="table wrap table-striped" id="inquiry">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>For Car</th>
+                    <th>Subject</th>
+                    <th>Comments</th>
+                    <th>Is Trade?</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for( let iq of inquiries ) { %>
+                    <tr>
+                        <td> <%= iq.firstName + ' ' + iq.lastName %></td>
+                        <td> <a href="/car/<%= iq.forCar.id%>"><%= iq.forCar.title %></a></td>
+                        <td> <%= iq.subject %></td>
+                        <td> <%= iq.comments %></td>
+                        <td> <%= iq.hasTradeIn? 'Yes' : 'No' %></td>
+                        <td> <%= moment(iq.createdAt).format('MMM DD YYYY') %></td>
+                        <td>
+                            <% if (iq.phone != null) { %>
+                             <a href="tel:<%= iq.phone %>">&#128222;</a>
+                            <% } %>
+                            &nbsp;
+                            <a href="mailto:<%= iq.email %>">&#128231;</a>
+                            
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Name</th>
+                    <th>For Car</th>
+                    <th>Subject</th>
+                    <th>Comments</th>
+                    <th>Is Trade?</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+        
+    </div>
+    
+    <%- include('../partials/footer'); %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#inquiry').DataTable();
+        });
+    </script>
+</body>
+
+</html>
