@@ -1,10 +1,12 @@
-# Project for WAP 472
+# Project for SWE 425
 
-This project is for submission of final project for WAP 472 and is developed using NodeJS, ExpressJS, EJS, Mongoose
+This project is for submission of final project for SWE 425 and is developed using NodeJS, ExpressJS, EJS, Mongoose
 
-[Project Description](Project.pdf)
+[Project Description](../documentation/Problem%20Statement.docx)
 
 ## ToDos
+- [x] Identify Problem Statement
+- [x] Complete Preliminary UML Documentation
 - [x] Setup Express app
 - [x] Create folder structure for MVC
 - [x] Create and setup server.js
@@ -12,13 +14,14 @@ This project is for submission of final project for WAP 472 and is developed usi
     - [X] create partial layouts
     - [x] implement bootstrap
     - [x] create individual layouts for cars
+    - [x] create individual layouts for inquiries
     - [x] create individual layouts for makes
     - [x] create individual layouts for login and registration
 - [x] Create Controllers
 - [x] Setup project for using Mongoose
     - [x] Create Models
     - [x] Write Schemas for User
-    - [ ] Seed User data
+    - [x] Write Schemas for Inquiry
     - [x] Write Schemas for Cars
     - [x] Seed Car data
     - [x] Write Schemas for makes
@@ -32,9 +35,7 @@ This project is for submission of final project for WAP 472 and is developed usi
 - [x] Add Sort by price
 - [x] Implement Authentication 
 - [x] Implement Remember Me feature during Login
-- [x] (Optional) Add image upload feature when adding cars
-- [ ] (Optional) Validate Inputs 
-- [ ] (Optional) Setup unit testing for Controllers
+- [x] Add image upload feature when adding cars
 
 ## Project folder Structure
 ```
@@ -42,12 +43,14 @@ This project is for submission of final project for WAP 472 and is developed usi
 └── Project/
     ├── controllers/
     │   ├── carController.js
+    │   ├── inquiryController.js
     │   ├── loginController.js
     │   └── makeController.js
     ├── middlewares/
     │   └── authTokens.js
     ├── models/
     │   ├── carSchema.js
+    │   ├── inquirySchema.js
     │   ├── makeSchema.js
     │   └── userSchama.js
     ├── node_modules/
@@ -58,6 +61,7 @@ This project is for submission of final project for WAP 472 and is developed usi
     ├── routes/
     │   ├── cars.js
     │   ├── index.js
+    │   ├── inquiry.js
     │   └── makes.js
     ├── seeds/
     │   ├── carSeeds.js
@@ -67,6 +71,8 @@ This project is for submission of final project for WAP 472 and is developed usi
     │   │   ├── edit.ejs
     │   │   ├── index.ejs
     │   │   └── new.ejs
+    │   ├── inquiry/
+    │   │   ├── list.ejs
     │   ├── makes/
     │   │   ├── edit.ejs
     │   │   ├── index.ejs
@@ -83,7 +89,6 @@ This project is for submission of final project for WAP 472 and is developed usi
     ├── .gitignore
     ├── package-lock.json
     ├── package.json
-    ├── Project.pdf
     ├── readme.me
     └── server.js
 ```
@@ -159,6 +164,7 @@ const filterCars = async (req, res) => {
 Created different middleware to generate AuthToken, AuthToken is stored in the cookies.
 
 ```javascript
+let isLoggedIn = false;
 module.exports = {
     authTokens: {},
     generateAuthToken: () => {
@@ -174,7 +180,15 @@ module.exports = {
             });
         }
     },
-    isLoggedIn: false
+    isLoggedIn: () => {
+        return isLoggedIn;
+    },
+    changeLoggedInTrue: () =>{
+        isLoggedIn= true;
+    },
+    changeLoggedInFalse: () =>{
+        isLoggedIn= false;
+    }
 }
 ```
 
