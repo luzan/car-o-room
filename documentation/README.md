@@ -25,10 +25,12 @@ Premilinary Diagrams are the diagrams designed after studying problem statement 
 #### Context Diagram <a name="context"></a>
 
 Context Diagram will show how the system communicated between different entities.
+![Context Diagram](/documentation/Diagram/Context%20Diagram/Context%20Diagram%20.png)
 
 #### Use Case Diagrams <a name="usecase"></a>
 
 Use Case Diagrams will show functional requirements of the system.
+![Use Case Diagram](/documentation/Diagram/Use%20Case%20Diagram/UseCaseDiagram.jpg)
 
 ### Lab 5: Analysis - Domain modeling (Class diagram) and Sequence diagram
 
@@ -37,14 +39,22 @@ As a part of Lab 5, we have designed Class Diagram and Sequence Diagram
 #### Class Diagrams <a name="class"></a>
 
 Look inside Class Diagram folder, this class diagram is used to show how our domain will be modeled. 
+![Class Diagram](/documentation/Diagram/Class%20Diagram/Lab%207%20-%20Final%20Draft%20-%20Class%20Diagram.jpg)
 
 #### Sequence Diagrams <a name="sequence"></a>
 
 Sequence Diagram folder consist of two sequence diagram showing the behaviour of two different use cases. We have covered the behaviour of Adding a car and Checking availability of car in these diagram.
 
+##### Sequence Diagram for Adding a car
+![Add a car](/documentation/Diagram/Sequence%20Diagrams/Add%20a%20Car.jpg)
+
+##### Sequence Diagram for Checking Availability
+![Check availability](/documentation/Diagram/Sequence%20Diagrams/Check%20availability.jpg)
+
 ### Lab 6: Architecture Diagrams <a name="architecture"></a>
 
 We have two drafts of Architecture. First draft will give a glance of how the architecture and final draft will be more consise about the architecture mentioning several tires and layers including technologies.
+![Architecture Diagrams](/documentation/Diagram/Architecture%20Diagram/Final%20Draft%20-%20Software%20Architecture%20Diagram.jpg)
 
 ### Lab 7: Design <a name="design"></a>
 
