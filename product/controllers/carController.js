@@ -63,12 +63,6 @@ function getArticleHTML(cars) {
                 <p class="card-text mb-auto">
                 ${car.sellersNote}
                 </p>
-                <form class=" my-2 my-lg-0" method="post"
-                    action="/cars/${car._id}?_method=DELETE">
-                    <a href="/cars/${car._id}/edit" class="btn btn-outline-primary">Edit</a>
-                    &nbsp;
-                    <button class="btn btn-outline-danger" type="submit">Delete</button>
-                </form>
             </div>
 
             <div class="col-auto d-none d-lg-block">
